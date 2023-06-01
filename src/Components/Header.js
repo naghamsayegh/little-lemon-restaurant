@@ -1,13 +1,14 @@
 import React from "react";
+import headerStyle from "../Style/Header.css"
 import logo from "../Assets/Images/Logo .svg";
 
 export const Header = () => {
   return (
-    <header>
-      <img src={logo} alt="Little Lemon Restaurant Logo" />
+    <header className={headerStyle}>
+      <img src={logo} alt="Little Lemon Restaurant Logo" className="header-img"/>
       <nav>
-        <ul>
-          <li>
+        <ul id="nav-bar-list">
+          <li >
             <a href="home">Home</a>
           </li>
           <li>
