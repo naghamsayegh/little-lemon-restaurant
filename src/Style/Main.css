@@ -15,7 +15,7 @@ section > img {
   margin-top: 2rem;
   width: 19.5rem;
   height: 20rem;
-  right: 13rem;
+  right: 12.5rem;
   margin-right: 7rem;
   border-radius: 20px;
   position: absolute;
@@ -86,5 +86,5 @@ button {
     font-size: 12px;
     line-height: 21px;
     text-align: left;
-}
+  }
 }

@@ -1,0 +1,82 @@
+.container-width {
+  max-width: 923px;
+}
+
+.menu-card {
+  border: 0px;
+  border-radius: 0px;
+}
+
+.card-menu-img {
+  max-height: 25vh;
+}
+
+.menu-body {
+  height: 20rem;
+  flex-shrink: 0;
+  background: #d9d9d9;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.menu-header-text {
+  color: #000;
+  font-size: 60px;
+  font-family: " Markazi Text";
+}
+
+.menu-card-name-price {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 700;
+}
+
+.menu-description {
+  color: #000;
+  font-size: 16px;
+  font-family: Inter;
+}
+
+.menu-header-button {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  width: 9.4rem;
+  color: black;
+  background-color: #f4ce14;
+  border: 1px black solid;
+}
+
+.menu-section {
+  display: grid;
+  grid-template-columns: repeat(3, fr);
+}
+
+.menu-image {
+  width: 259px;
+  height: 220px;
+}
+
+.menu-price {
+  color: #f58e15;
+}
+
+.menu-order-online {
+  color: #000;
+  font-size: 20px;
+  font-family: Inter;
+  background: #d9d9d9;
+  padding: 20px;
+  margin: 0px;
+}
