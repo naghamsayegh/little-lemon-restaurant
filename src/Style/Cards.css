@@ -12,7 +12,7 @@
 }
 
 .menu-body {
-  height: 20rem;
+  height: 15rem;
   flex-shrink: 0;
   background: #d9d9d9;
 }
@@ -55,6 +55,12 @@
   width: 9.4rem;
   color: black;
   background-color: #f4ce14;
+  border: 1px black solid;
+}
+
+.menu-header-button:hover {
+  background-color: #f4ce14;
+  color: black;
   border: 1px black solid;
 }
 

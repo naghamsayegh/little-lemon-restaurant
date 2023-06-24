@@ -10,31 +10,6 @@ import Button from "react-bootstrap/Button";
 export const Cards = (props) => {
   const menus = props.menus;
   return (
-    // <>
-    //   <section className="menu-header">
-    //     <h1 className="menu-header-text">This Week's Special</h1>
-    //     <button className="menu-header-button">Online Menu </button>
-    //   </section>
-    //   {menus.map((menu) => (
-    //     <div className="container">
-    //       <div className="row ">
-    //         <div className="col-4">
-    //           <div className="card">
-    //             <img src={menu.image} alt={menu.name} />
-    //             <section>
-    //               <h2>{menu.name}</h2>
-    //               <h3>{menu.price}</h3>
-    //             </section>
-    //             <section>{menu.desc}</section>
-    //             <section>
-    //               <h4>Order a delivery </h4>
-    //             </section>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   ))}
-    // </>
     <section className="block blog-block">
       <Container className="container-width">
         <div className="menu-header">

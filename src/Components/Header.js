@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className={headerStyle}>
+    <header>
       <img
         src={logo}
         alt="Little Lemon Restaurant Logo"
@@ -24,7 +24,9 @@ export const Header = () => {
             <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <Link to="/Reservations">Reservations</Link>
+            <Link className="hover-effect" to="/reservations">
+              Reservations
+            </Link>
           </li>
           <li>
             <Link to="/Order Online">Order Online</Link>

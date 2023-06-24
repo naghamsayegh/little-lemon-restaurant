@@ -1,0 +1,35 @@
+/* styles.css */
+
+.booking-form-container {
+  max-width: 400px;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}
+
+.form-container {
+  background-image: url("../Assets/Images/Lemon-Peeled.png");
+  
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group input[type="number"],
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  margin-top: 20px;
+}

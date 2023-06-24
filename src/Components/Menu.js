@@ -8,7 +8,7 @@ import greekSalad from "../Assets/Images/greek salad.jpg";
 import Bruchetta from "../Assets/Images/bruchetta.svg";
 import LemonDessert from "../Assets/Images/lemon dessert.jpg";
 
-export const Menu = () => {
+const Menu = () => {
   const menus = [
     {
       image: greekSalad,
@@ -35,3 +35,5 @@ export const Menu = () => {
     </>
   );
 };
+
+export default Menu;

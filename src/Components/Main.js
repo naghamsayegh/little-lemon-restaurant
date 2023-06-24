@@ -2,7 +2,7 @@ import React from "react";
 import "../Style/Main.css";
 import restaurantFood from "../Assets/Images/restauranfood.jpg";
 
-export const Main = () => {
+const Main = () => {
   return (
     <main>
       <section className="main-information-section">
@@ -15,7 +15,7 @@ export const Main = () => {
           recipes served with a modern
           <br /> twist
         </p>
-        <button>Reserve A Table </button>
+        <button>Reserve A Table</button>
       </section>
       <section>
         <img src={restaurantFood} alt="" />
@@ -23,3 +23,5 @@ export const Main = () => {
     </main>
   );
 };
+
+export default Main;
