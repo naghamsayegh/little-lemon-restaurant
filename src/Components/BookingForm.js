@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Formik, Form, Field } from "formik";
+import { FormGroup, FormControl, Button, FormLabel } from "react-bootstrap";
 
-import { Form, Button } from "react-bootstrap";
-import "../Style/BookingForm.css";
-const BookingForm = (props) => {
-  const [fName, setFName] = useState("");
-  const [lName, setLName] = useState("");
-  const [phone, setPhone] = useState("");
+import BookingFormStyle from "../Style/BookingForm.css";
+
+import { basicSchema } from "../schemas/validation";
+
+const initialValues = {
+  name: "",
+  email: "",
+  firstName: "",
+  lastName: "",
+  guests: "",
+  phone: "",
+};
+
+const MyForm = (props) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [guests, setGuests] = useState("");
-  const [occasion, setOccasion] = useState("");
-
   const [finalTime, setFinalTime] = useState(
     props.availableTimes.map((times) => <option>{times}</option>)
   );
-
   function handleDateChange(e) {
     setDate(e.target.value);
 
@@ -27,98 +33,131 @@ const BookingForm = (props) => {
     setFinalTime(props.availableTimes.map((times) => <option>{times}</option>));
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form submitted");
+  const handleSubmit = (values, { setSubmitting }) => {
+    // Perform form submission logic here
+    console.log(values);
+    setSubmitting(false);
   };
 
   return (
-    <div className="form-container">
-      <Form onSubmit={handleSubmit} className="booking-form-container ">
-        <Form.Group controlId="formFirstName">
-          <Form.Label>First Name</Form.Label>
-          <Form.Control
-            type="text"
-            value={fName}
-            onChange={(e) => setFName(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="formLastName">
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            type="text"
-            value={lName}
-            onChange={(e) => setLName(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="formPhone">
-          <Form.Label>Phone</Form.Label>
-          <Form.Control
-            type="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
-        </Form.Group>
-        <Form.Group controlId="formDate">
-          <Form.Label>Date</Form.Label>
-          <Form.Control
-            type="date"
-            value={date}
-            onChange={handleDateChange}
-            required
-          />
-        </Form.Group>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={basicSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting, isValid }) => (
+          <div className="form-container">
+            <Form className="booking-form-container ">
+              <FormGroup>
+                <FormLabel htmlFor="firstName">First Name</FormLabel>
+                <Field
+                  as={FormControl}
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="Enter your First Name"
+                />
+              </FormGroup>
 
-        <Form.Group controlId="formTime">
-          <Form.Label>Time</Form.Label>
-          <Form.Control
-            as="select"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-            required
-          >
-            <option value="">Select a time</option>
-            {finalTime}
-          </Form.Control>
-        </Form.Group>
+              <FormGroup>
+                <FormLabel htmlFor="lastName">Last Name</FormLabel>
+                <Field
+                  as={FormControl}
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Enter your Last Name"
+                />
+              </FormGroup>
 
-        <Form.Group controlId="formGuests">
-          <Form.Label>Number of Guests</Form.Label>
-          <Form.Control
-            type="number"
-            value={guests}
-            onChange={(e) => setGuests(e.target.value)}
-            required
-          />
-        </Form.Group>
+              <FormGroup>
+                <FormLabel htmlFor="email">Email</FormLabel>
+                <Field
+                  as={FormControl}
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Enter your email address"
+                />
+              </FormGroup>
+              <FormGroup>
+                <FormLabel htmlFor="phone">Phone Number</FormLabel>
+                <Field
+                  as={FormControl}
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder="Enter your phone number"
+                />
+              </FormGroup>
 
-        <Form.Group controlId="formOccasion">
-          <Form.Label>Occasion</Form.Label>
-          <Form.Control
-            as="select"
-            value={occasion}
-            onChange={(e) => setOccasion(e.target.value)}
-            required
-          >
-            <option value="">Select an occasion</option>
-            <option value="Birthday">Birthday</option>
-            <option value="Anniversary">Anniversary</option>
-          </Form.Control>
-        </Form.Group>
-        <div className="text-center">
-          <Link className="action-button" to="/confirmation">
-            <Button type="submit" className="menu-header-button submit-button">
-              Submit Reservation
-            </Button>
-          </Link>
-        </div>
-      </Form>
-    </div>
+              <FormGroup>
+                <FormLabel htmlFor="date">Date</FormLabel>
+                <Field
+                  as={FormControl}
+                  type="date"
+                  name="date"
+                  id="date"
+                  placeholder="Enter your date"
+                  onChange={handleDateChange}
+                />
+              </FormGroup>
+              <FormGroup>
+                <FormLabel htmlFor="time">Time</FormLabel>
+                <FormControl
+                  as="select"
+                  name="time"
+                  id="time"
+                  placeholder="Enter your time"
+                  onChange={(e) => setTime(e.target.value)}
+                >
+                  <option value="">Select a time</option>
+                  {finalTime}
+                </FormControl>
+              </FormGroup>
+              <FormGroup>
+                <FormLabel htmlFor="guests">Guests</FormLabel>
+                <FormControl
+                  as={FormControl}
+                  type="number"
+                  name="guests"
+                  id="guests"
+                  placeholder="Enter the number of  guests"
+                ></FormControl>
+              </FormGroup>
+              <FormGroup>
+                <FormLabel htmlFor="guests">Occasions</FormLabel>
+                <FormControl
+                  as="select"
+                  name="occasion"
+                  id="guests"
+                  placeholder="Enter the number of  guests"
+                >
+                  <option value="">Select an occasion</option>
+                  <option value="Birthday">Birthday</option>
+                  <option value="Graduation">Graduation</option>
+                  <option value="Engagement">Engagement</option>
+                  <option value="Anniversary">Anniversary</option>
+                </FormControl>
+              </FormGroup>
+
+              <Link className="action-button" to="/confirmation">
+                <Button
+                  type="submit"
+                  className="menu-header-button submit-button"
+                  disabled={isValid}
+                  aria-label="On Click"
+                >
+                  Submit
+                </Button>
+              </Link>
+            </Form>
+          </div>
+        )}
+      </Formik>
+    </>
   );
 };
 
-export default BookingForm;
+export default MyForm;

@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Homepage from "../Components/Main";
+import Homepage from "../Components/Pages/HomePage";
 // import About from "./pages/About";
 import Reservation from "../Components/Pages/BookingPage";
 // import Order from "./pages/Order";
 // import Login from "./pages/Login";
 import Confirmation from "./Pages/ConfirmedBooking";
+
 
 function Routing() {
   return (
